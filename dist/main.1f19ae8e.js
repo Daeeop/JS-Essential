@@ -117,7 +117,24 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"main.js":[function(require,module,exports) {
+})({"getRandom.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = random;
+
+function random() {
+  return Math.floor(Math.random() * 10);
+}
+},{}],"main.js":[function(require,module,exports) {
+"use strict";
+
+var _getRandom = _interopRequireDefault(require("./getRandom"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // 데이터 타입 확인 typeof
 // 결과 값 : Object
 // typeof(null) 
@@ -196,8 +213,55 @@ console.log(!z); // 삼항 연산자
 // 조건식 ? 조건식이 true면 실행 : 조건식이 false면 실행
 
 var num2 = 3;
-num1 < num2 ? console.log('1은 3보다 작아요') : console.log('1은 3보다 커요');
-},{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+num1 < num2 ? console.log('1은 3보다 작아요') : console.log('1은 3보다 커요'); //////////////////////////////////////////////////
+
+var randomNum = (0, _getRandom.default)(); // 조건문 (Switch)
+// 하나의 케이스가 끝나면 break로 마무리 해주어야 한다.
+
+switch (randomNum) {
+  case 0:
+    console.log('randomNum is 0');
+    break;
+
+  case 2:
+    console.log('randomNum is 2');
+    break;
+
+  case 4:
+    console.log('randomNum is 4');
+    break;
+
+  default:
+    console.log('rest...');
+} // 조건문 (If Else)
+
+
+if (randomNum === 0) {
+  console.log('randomNum is 0');
+} else if (randomNum < 5) {
+  console.log('randomNum < 5');
+} else {
+  console.log(randomNum);
+  console.log('randomNum 은 5보다 크고 0은 아니야.');
+} // 반복문 For
+// for(시작조건; 종료조건; 변화조건) {}
+
+
+var ulEl = document.querySelector('ul');
+
+var _loop = function _loop(i) {
+  var li = document.createElement('li');
+  li.textContent = "list-".concat(i + 1);
+  li.addEventListener('click', function () {
+    console.log(li.textContent);
+  });
+  ulEl.appendChild(li);
+};
+
+for (var i = 0; i < 10; i++) {
+  _loop(i);
+}
+},{"./getRandom":"getRandom.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

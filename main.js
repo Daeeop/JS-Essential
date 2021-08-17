@@ -1,3 +1,6 @@
+import random from './getRandom';
+
+
 // 데이터 타입 확인 typeof
 
 // 결과 값 : Object
@@ -77,5 +80,48 @@ const num2 = 3
 num1 < num2 ? console.log('1은 3보다 작아요') : console.log('1은 3보다 커요');
 
 
+//////////////////////////////////////////////////
+
+const randomNum = random();
+
+// 조건문 (Switch)
+// 하나의 케이스가 끝나면 break로 마무리 해주어야 한다.
+switch (randomNum ) {
+  case 0:
+    console.log('randomNum is 0')
+    break
+  case 2:
+    console.log('randomNum is 2')
+    break
+  case 4: 
+  console.log('randomNum is 4')
+  break
+  
+  default: 
+  console.log('rest...')
+} 
+
+
+// 조건문 (If Else)
+if(randomNum === 0) {
+  console.log('randomNum is 0');
+} else if(randomNum < 5) {
+  console.log('randomNum < 5');
+} else {
+  console.log(randomNum);
+  console.log('randomNum 은 5보다 크고 0은 아니야.')
+}
+
+// 반복문 For
+// for(시작조건; 종료조건; 변화조건) {}
+const ulEl = document.querySelector('ul')
+for (let i = 0; i < 10; i++) {
+ const li = document.createElement('li');
+ li.textContent = `list-${i + 1}`
+ li.addEventListener('click' , () => {
+   console.log(li.textContent);
+ })
+ ulEl.appendChild(li);
+}
 
 
