@@ -278,6 +278,15 @@ scope(); // const , let은 우리가 변수가 선언되어져있는 블럭 내�
 // var 변수 키워드는 블록레벨의 유효범위가 아니고 함수레벨의 유효범위를 가진다. 
 // 그렇기 때문에 위에 scope 함수에서 const를 var로 바꾸면 오류가 발생 하지 않는다.
 // 의도 하지 않는 곳에서 변수가 사용 될 수도 있고 메모리 누수가 생기기 때문에 권장 하지 않는다.
+// 형 변환(데이터 타입 변환)
+
+var test = 1;
+var test1 = '1';
+console.log(test == test1); // true (동등 연산자 사용시 형 변환 발생) .. 원래는 false가 나와야 한다. .. 동등연산자 사용 권장 안함 .. 일치연산자(===) 권장
+// Truthy (참 같은 값) : true (boolean) , {} (object) , [] (array) , 1,2 (number) , 'false' (String) , -12 , '3.14'...
+// Falsy(거짓 같은 값) : false (booelan) , '' (빈 문자열) , null , undefined , 0 , -0 , NaN (Not a Number , 숫자 데이터)
+// NaN : 산술 연산자의 결과가 숫자로 판단 할 수 없을 경우에 발생 하는 데이터 ex ) 1 + undefined .. NaN 숫자 데이터 이긴 한데 숫자는 아니다.
+// 형 변환을 통해서 거짓 , 참 값으로 해석 될 수 있기 때문에 잘 알아 두어야 한다.
 },{"./getRandom":"getRandom.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
