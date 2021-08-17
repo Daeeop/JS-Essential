@@ -164,6 +164,39 @@ console.log(a); // 2
 a += 1; // += 도 할당 연산자 (-= , *= , /= , %= )
 
 console.log(a); // 3
+// 비교 연산자 (일치 연산자)
+
+var num = 1;
+var num1 = 1;
+console.log(num === num1); // true
+// 일치 연산자 활용 함수 
+
+var isEqul = function isEqul(x, y) {
+  return x === y;
+};
+
+console.log(isEqul(1, 1)); // true
+
+console.log(isEqul(1, '1')); // false
+
+console.log(num !== num1); // false (서로가 다른가 ? )
+
+console.log(num < num1); // a가 b 보다 작은가? false
+// 논리 연산자 (&& , AND) , (|| , OR) , (! ,NOT))
+// && 연산자 : 모두 true 여야 true 반환
+// || 연산자 : 하나만 true 여도 true 반환
+// ! (부정) 연산자 : true 면 false 반환 
+
+var z = true;
+var x = true;
+var y = true;
+console.log(x && y && z); // true
+
+console.log(!z); // 삼항 연산자
+// 조건식 ? 조건식이 true면 실행 : 조건식이 false면 실행
+
+var num2 = 3;
+num1 < num2 ? console.log('1은 3보다 작아요') : console.log('1은 3보다 커요');
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -192,7 +225,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49475" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55249" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -38,11 +38,43 @@ console.log( 10 % 2); // 나머지 연산자 : 0
 // 할당 연산자 (=)
 // a 라는 변수에 숫자 2를 할당
 let a = 2;
-console.log(a); // 2
+console.log(a); 
+// 2
 // a = a + 1; 
 a += 1; // += 도 할당 연산자 (-= , *= , /= , %= )
 console.log(a); // 3
 
+// 비교 연산자 (일치 연산자)
+const num = 1
+const num1 = 1
+console.log(num === num1) // true
+
+// 일치 연산자 활용 함수 
+const isEqul = (x,y) => {
+  return x === y
+}
+
+console.log(isEqul(1,1)) // true
+console.log(isEqul(1,'1')) // false
+
+console.log(num !== num1); // false (서로가 다른가 ? )
+console.log(num < num1); // a가 b 보다 작은가? false
+
+// 논리 연산자 (&& , AND) , (|| , OR) , (! ,NOT))
+// && 연산자 : 모두 true 여야 true 반환
+// || 연산자 : 하나만 true 여도 true 반환
+// ! (부정) 연산자 : true 면 false 반환 
+const z = true;
+const x = true;
+const y = true;
+console.log(x && y && z); // true
+console.log(!z);
+
+// 삼항 연산자
+// 조건식 ? 조건식이 true면 실행 : 조건식이 false면 실행
+
+const num2 = 3 
+num1 < num2 ? console.log('1은 3보다 작아요') : console.log('1은 3보다 커요');
 
 
 
