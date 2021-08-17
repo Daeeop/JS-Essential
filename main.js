@@ -124,4 +124,22 @@ for (let i = 0; i < 10; i++) {
  ulEl.appendChild(li);
 }
 
+// 변수 유효범위
+// var(권장 x) , let , const
 
+const scope = () => {
+  if(true) {
+    const scopeNum = 123
+    
+  }
+  console.log(scopeNum);
+}
+scope();
+
+// const , let은 우리가 변수가 선언되어져있는 블럭 내부가 유효 범위(동작 가능) 이다. 지금 같은 경우는 if 조건문 안에 scopeNum이 선언 되어져있는데 
+// 조건문 밖에서 console.log(scopeNum);가 있어서 유효범위에 벗어나서 Uncaught ReferenceError: scopeNum is not defined 라는 오류가 콘솔에 출력된다.
+// 결론적으로 const , let은 블록(중괄호) 레벨의 유효범위를 가진다. 
+
+// var 변수 키워드는 블록레벨의 유효범위가 아니고 함수레벨의 유효범위를 가진다. 
+// 그렇기 때문에 위에 scope 함수에서 const를 var로 바꾸면 오류가 발생 하지 않는다.
+// 의도 하지 않는 곳에서 변수가 사용 될 수도 있고 메모리 누수가 생기기 때문에 권장 하지 않는다.
