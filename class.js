@@ -134,3 +134,62 @@ const timer = {
 }
 
 timer.timeout(); // JUNG // this : timer
+
+// ES6 classess
+const bake = {
+  name : 'Baek',
+  normal () { // function 키워드 생략 가능
+    console.log(this.name)
+  },
+  arrow : () => {
+    console.log(this.name)
+  }
+}
+
+bake.normal(); // Baek
+bake.arrow(); // undefined
+
+// 위에 정의한 생성자 함수를 class 문법을 통해 간결하게 만들 수 있다.
+class User1 {
+  constructor(first , last) {
+    this.firstName = first
+    this.lastName = last
+  }
+  getFullName() {
+    return `${this.firstName} ${this.lastName}`
+  }
+}
+
+const ain = new User1('jung' ,'ain');
+console.log(ain.getFullName());
+
+// 자바스크립트 클래스 상속(확장)
+class Vehicle {
+  constructor(name , wheel) {
+    this.name = name;
+    this.wheel = wheel; 
+  }
+}
+
+const myVehicle = new Vehicle('운송수단' , 2);
+console.log(myVehicle);
+
+class Bicycle extends Vehicle {
+  constructor(name , wheel ) {
+    super(name , wheel) 
+  }
+}
+
+// super는 Vehicle을 의미 한다.(확장된 클래스)
+const myBycle = new Bicycle ('자전거' , 2);
+console.log(myBycle);
+
+class Car extends Vehicle {
+  constructor(name , wheel , license) {
+    super(name , wheel) 
+    this.license = license
+  }
+}
+
+const myCar = new Car('Benz' , 4 , true)
+console.log(myCar);
