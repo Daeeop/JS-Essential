@@ -66,3 +66,71 @@ console.log(amy1.getFullName());
 // 인스턴스들은 딱 한번만 메모리에 올라가 있는 getFullName 을 참조 한다.
 // 배열 데이터 에는 prototpye 으로 만들어져 있는 다양한 메소드가 있다.
 // 생성자 함수는 파스칼 케이스로 작성 첫단어의 첫글자도 대문자로 작성 
+
+
+
+// This 
+// 일반 함수는 호출 위치에서 따라 this 정의
+// 화살표 함수는 자신이 선언된 함수 범위에서 this 정의
+
+const kim = {
+  name : 'Daeeop',
+  normal : function() {
+    console.log(this.name);
+  },
+  arrow : () => {
+    console.log(this.name)
+  }
+}
+
+kim.normal(); // Daeeop // kim이 this
+kim.arrow(); // undefined // this가 무엇인지 알 수 없다.
+
+const park = {
+  name : 'park',
+  noraml : kim.normal,
+  arrow : kim.arrow
+}
+
+park.noraml(); // park
+park.arrow(); // undefined
+
+// 생성자 함수에서 this
+
+function Userr(name) {
+  this.name = name;
+}
+
+Userr.prototype.noraml = function() {
+  console.log(this.name);
+}
+
+Userr.prototype.arrow = () => {
+  console.log(this.name);
+}
+
+const bae = new Userr('bae');
+bae.noraml(); // bae
+bae.arrow(); // undefined
+
+// const timer = {
+//   name : 'Jung',
+//   timeout : function () {
+//     setTimeout(function() {
+//       console.log(this.name);
+//     } , 2000)
+//   }
+// }
+
+// timer.timeout(); // undefined가 나와야 함
+
+const timer = {
+  name : 'JUNG' ,
+  timeout : function() {
+    setTimeout(() => {
+      console.log(this.name);
+    }, 2000);
+  }
+}
+
+timer.timeout(); // JUNG // this : timer
