@@ -266,10 +266,9 @@ for (var i = 0; i < 10; i++) {
 
 var scope = function scope() {
   if (true) {
-    var _scopeNum = 123;
-  }
+    var scopeNum = 123;
+  } // console.log(scopeNum);
 
-  console.log(scopeNum);
 };
 
 scope(); // const , let은 우리가 변수가 선언되어져있는 블럭 내부가 유효 범위(동작 가능) 이다. 지금 같은 경우는 if 조건문 안에 scopeNum이 선언 되어져있는데 
@@ -287,6 +286,72 @@ console.log(test == test1); // true (동등 연산자 사용시 형 변환 발�
 // Falsy(거짓 같은 값) : false (booelan) , '' (빈 문자열) , null , undefined , 0 , -0 , NaN (Not a Number , 숫자 데이터)
 // NaN : 산술 연산자의 결과가 숫자로 판단 할 수 없을 경우에 발생 하는 데이터 ex ) 1 + undefined .. NaN 숫자 데이터 이긴 한데 숫자는 아니다.
 // 형 변환을 통해서 거짓 , 참 값으로 해석 될 수 있기 때문에 잘 알아 두어야 한다.
+// 함수 정의 (선언)
+
+function sum(n, m) {
+  return n + m; // return 키워드 이하의 코드는 실행 불가 
+} // const sum = function(n,m) {}; 함수 표현
+// sum(1,3) 괄호 안의 1,3 은 인수 라고 칭한다.
+// sum 함수 선언부에 괄호 안은 매개 변수라고 칭한다.
+
+
+function newSum() {
+  return arguments[0] + arguments[1];
+}
+
+console.log(newSum(1, 2)); // 함수 선언시 따로 매개변수를 설정 하지 않고 arguments 객체를 사용 할 수 있다. 1 = arguments[0] / 2 = arguments[1]
+// 화살표 함수 (arrowFunction)
+// () => {}; vs function () {};
+// 화살표 함수의 장점은 내용을 축약 할 수 있다.
+// 실행문을 중괄호로 감싸면 return 키워드 사용해야함
+// 객체데이터를 축약형으로 return 하려면 () 괄호로 한번 감싸주어야 한다.
+
+var double = function double(x) {
+  return x * 2;
+};
+
+console.log(double(5));
+
+var obj = function obj() {
+  return {
+    name: 'daeeop'
+  };
+};
+
+console.log(obj()); // 즉시 실행함수 (IIFE)
+// 익명 함수를 ()로 감싸고 끝나는 부분에 () 사용
+
+(function () {
+  console.log('즉시 실행');
+})(); // 호이스팅
+// 함수 선언부가 유효범위 최상단으로 끌어올려지는 현상
+// 함수 표현식은 해당 안함
+
+
+ddouble();
+
+function ddouble() {
+  console.log(a * 2);
+} // 함수 선언부가 함수 호출 밑에 있어도 오류 없이 동작
+// 타이머 함수
+// setTimeout(함수 , 시간) : 일정 시간 후 함수 실행
+// setInterval(함수 , 시간) : 시간 간격 마다 함수 실행
+// clearTimeout(함수명) : 설정된 Timeout 함수를 종료
+// clearInterval(함수명) : 설정된 Interval 함수를 종료
+// 콜백 함수 (함수의 인수로 사용되는 함수)
+// setTimeout(함수 , 시간)
+
+
+function timeOut(callback) {
+  setTimeout(function () {
+    console.log('heropy!');
+    callback();
+  }, 3000);
+}
+
+timeOut(function () {
+  console.log('Heropy 출력 완료'); // 콜백 함수
+}); // 콜백 함수를 특정한 실행 위치를 보장 해주는 역할로 콜백 함수를 활용 할 수 있다.
 },{"./getRandom":"getRandom.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -315,7 +380,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55249" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57834" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
