@@ -89,3 +89,38 @@ console.log(four); // undefined
 
 const [,kor] = countrys
 console.log(kor);
+
+// 전개 연산자 (Spread 연산자) ... 
+
+const brands = ['Nike' , 'Auralee' , 'Neat' ]
+console.log(brands);
+console.log(...brands); // 문자 데이터 형식으로 출력
+
+// function toObject (a , b , c) {
+//   return {
+//     a: a,
+//     b: b,
+//     c: c
+//   }
+// }
+
+// 속성의 이름과 변수의 이름이 같으면 축약 할 수 있다.
+
+const toObject = (a,b,c) => ({a , b, c})
+console.log(toObject(...brands));
+// 만약 스프레드 문법을 사용 하지 않으면 toObject(brands[0] , brands[1]..,) 이런식으로 매개변수를 넣어야 한다.
+// {a: "Nike", b: "Auralee", c: "Neat"}
+
+// 만약 toObject의 매개변수는 3개를 받는데 brands 배열의 길이가 4로 늘어나면
+const brand = ['Nike' , 'Auralee' , 'Neat' , 'EngineeredGarments']
+function goObject(one , two , ...three) {
+  return {
+    a: one,
+    b: two,
+    c: three
+  }
+}
+
+console.log(goObject(...brand));
+// {a: "Nike", b: "Auralee", c: Array(2)}
+// ...three 부분이 나머지 아이템들을 배열 형태로 다 받는다. (rest parameter)
