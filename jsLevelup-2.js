@@ -105,7 +105,6 @@ console.log(...brands); // 문자 데이터 형식으로 출력
 // }
 
 // 속성의 이름과 변수의 이름이 같으면 축약 할 수 있다.
-
 const toObject = (a,b,c) => ({a , b, c})
 console.log(toObject(...brands));
 // 만약 스프레드 문법을 사용 하지 않으면 toObject(brands[0] , brands[1]..,) 이런식으로 매개변수를 넣어야 한다.
