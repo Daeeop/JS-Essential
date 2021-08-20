@@ -92,3 +92,4 @@ console.log(jsonObj);
 localStorage.setItem('daeeop' , JSON.stringify(jsonObj));
 
 // lowdb 활용 하기
+
