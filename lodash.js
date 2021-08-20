@@ -2,6 +2,7 @@ import _ from 'lodash' // lodash from node_modules
 import getType from './getType'
 // import {random , user as Heropy} from './getRandom'
 import * as R from './getRandom'; // 모든 데이터 한번에 가져오기
+import myData from './myData.json'; // json 확장자 명시 / json 파일은 하나의 문자데이터 이다. / import 해서 사용하면 하나의 객체데이터 처럼 사용되는것 처럼 보인다.
 
 console.log(_.camelCase('good life'))
 console.log(getType([1,2,3]));
@@ -51,3 +52,43 @@ console.log(foundUserIndex);
 
 _.remove(users , {name : 'HEROPY'}) // 배열 요소 제거
 console.log(users)
+
+// JSON : 데이터를 표현 하는 하나의 형태 / 객체 표기법 / "" 만 가능
+const daeeop = {
+  name: 'Heropy',
+  age : 28 ,
+  emails: [
+    'daeeop94@daum.net',
+    'hellodigital@hello.com'
+  ]
+}
+
+console.log('daeeop' , daeeop);
+
+const str = JSON.stringify(daeeop) // json 데이터를 자바스크립트 문자데이터로 변경 (JSON화)
+console.log('str' , str);
+console.log(typeof str)
+
+const obj = JSON.parse(str) // 문자데이터를 실제 객체 데이터로 변경 (자바스크립트 에서 쓸 수 있는 형태로 변경)
+console.log('obj' , obj)
+console.log(typeof obj);
+
+console.log(myData);
+
+// Storage
+// Local Storage : 저장하면 사이트에 종속 된다.(반 영구적 사용 가능 )
+// Session Storage : 페이지를 닫으면 사라진다.
+// 문자 데이터를 저장해야한다. (객체 데이터는 JSON.Stringfy 사용하여 변경 하고 저장)
+
+ localStorage.setItem('daeeop' , JSON.stringify(daeeop))
+ console.log('storage' ,localStorage.getItem('daeeop'))
+ console.log('storage-json' , JSON.parse(localStorage.getItem('daeeop')))
+
+// 로컬 스토리지에 저장한 내용 수정하기
+const localStr = localStorage.getItem('daeeop');
+const jsonObj = JSON.parse(localStr);
+jsonObj.age = 22
+console.log(jsonObj);
+localStorage.setItem('daeeop' , JSON.stringify(jsonObj));
+
+// lowdb 활용 하기
